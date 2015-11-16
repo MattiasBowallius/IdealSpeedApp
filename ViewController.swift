@@ -7,9 +7,12 @@
 //
 
 import UIKit
-import MapKit
+import CoreLocation
 
 class ViewController: UIViewController, CLLocationManagerDelegate {
+    
+    @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var startButton: UIButton!
     
     let speedCalculator = SpeedCalculatorModel()
     var locationManager : CLLocationManager!
@@ -21,6 +24,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+    }
+    
+    @IBAction func startButtonPressed(sender: AnyObject) {
         locationManager.startUpdatingLocation()
     }
     
@@ -29,6 +35,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let location = locations.last
         speedCalculator.latestLocation = location
         print("The current speed is: \(speedCalculator.latestSpeed)")
+        speedLabel.text = "\(speedCalculator.latestSpeed) m/s"
     }
 }
 
