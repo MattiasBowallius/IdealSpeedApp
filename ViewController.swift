@@ -35,6 +35,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             locationManager.stopUpdatingLocation()
             startButton.setTitle("Start", forState: UIControlState.Normal)
             speedCalculator.reset()
+            
+            //Needs to be refreshed separately since we want to show the latest distance travelled until we start again.
+            speedLabel.text = "\(speedCalculator.latestSpeed) m/s"
         }
     }
     
@@ -43,6 +46,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         let location = locations.last
         speedCalculator.latestLocation = location
         print("The current speed is: \(speedCalculator.latestSpeed)")
+        refreshUI()
+    }
+    
+    func refreshUI(){
         speedLabel.text = "\(speedCalculator.latestSpeed) m/s"
         distanceLabel.text = "\(speedCalculator.distanceTravelled) m"
     }

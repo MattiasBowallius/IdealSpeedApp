@@ -14,16 +14,20 @@ class SpeedCalculatorModel{
     var latestLocation : CLLocation!{
         willSet(newLocation){
             if(newLocation != nil){
-            if let previousLocation = latestLocation{
-                let distance = newLocation.distanceFromLocation(previousLocation)
-                distanceTravelled += distance
+                if let previousLocation = latestLocation{
+                    let distance = newLocation.distanceFromLocation(previousLocation)
+                    distanceTravelled += distance
                 }
             }
         }
     }
     var latestSpeed : CLLocationSpeed!{
         get{
-            return latestLocation.speed
+            if let previousLocation = latestLocation{
+                return previousLocation.speed
+            }else{
+                return 0
+            }
         }
     }
     
