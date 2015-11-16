@@ -12,6 +12,7 @@ import CoreLocation
 class ViewController: UIViewController, CLLocationManagerDelegate {
     
     @IBOutlet weak var speedLabel: UILabel!
+    @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
     
     let speedCalculator = SpeedCalculatorModel()
@@ -43,6 +44,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         speedCalculator.latestLocation = location
         print("The current speed is: \(speedCalculator.latestSpeed)")
         speedLabel.text = "\(speedCalculator.latestSpeed) m/s"
+        distanceLabel.text = "\(speedCalculator.distanceTravelled) m"
     }
 }
 

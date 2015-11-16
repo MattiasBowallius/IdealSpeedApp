@@ -32,17 +32,27 @@
                                     <action selector="startButtonPressed:" destination="BYZ-38-t0r" eventType="touchUpInside" id="O4Y-bB-h7w"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0 m" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0q-Jn-F01">
+                                <rect key="frame" x="285" y="260" width="30" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="4W5-kx-fYk" firstAttribute="top" secondItem="TQk-sV-TLl" secondAttribute="bottom" constant="8" symbolic="YES" id="67a-DY-BkX"/>
+                            <constraint firstItem="R0q-Jn-F01" firstAttribute="centerX" secondItem="TQk-sV-TLl" secondAttribute="centerX" id="7AM-z5-ILR"/>
                             <constraint firstItem="TQk-sV-TLl" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="8Yk-AB-OFd"/>
+                            <constraint firstItem="TQk-sV-TLl" firstAttribute="top" secondItem="R0q-Jn-F01" secondAttribute="bottom" constant="8" symbolic="YES" id="bR4-6b-fS3"/>
                             <constraint firstItem="TQk-sV-TLl" firstAttribute="centerX" secondItem="4W5-kx-fYk" secondAttribute="centerX" id="hch-i9-69a"/>
                             <constraint firstItem="TQk-sV-TLl" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="vmm-L2-5pJ"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="distanceLabel" destination="R0q-Jn-F01" id="tSv-MM-4qV"/>
                         <outlet property="speedLabel" destination="TQk-sV-TLl" id="fCh-Aj-fMl"/>
                         <outlet property="startButton" destination="4W5-kx-fYk" id="CLr-Wh-H5b"/>
                     </connections>
