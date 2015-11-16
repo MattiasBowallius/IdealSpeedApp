@@ -26,7 +26,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         print("Updated location")
-        
+        let location = locations.last
+        speedCalculator.latestLocation = location
+        print("The current speed is: \(speedCalculator.latestSpeed)")
     }
 }
 

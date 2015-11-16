@@ -10,16 +10,10 @@ import Foundation
 import MapKit
 
 class SpeedCalculatorModel{
- 
-    var previousCoordinate : MKMapPoint!
-    var previousTime : NSDate!
-    
-    var currentCoordinate : MKMapPoint!
-    var currentTime : NSDate!
-    
-    var latestSpeed : Double {
+    var latestLocation : CLLocation!
+    var latestSpeed : CLLocationSpeed!{
         get{
-           return 0
+            return latestLocation.speed
         }
     }
 }
