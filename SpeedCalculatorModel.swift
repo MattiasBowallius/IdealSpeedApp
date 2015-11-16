@@ -16,14 +16,9 @@ class SpeedCalculatorModel{
         get{
             return latestLocation.speed
         }
-        
-        set(speed){
-            self.latestSpeed = speed
-        }
     }
     
     func reset(){
         latestLocation = nil
-        latestSpeed = 0
     }
 }
