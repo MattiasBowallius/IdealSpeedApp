@@ -15,19 +15,26 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var startButton: UIButton!
     
     let speedCalculator = SpeedCalculatorModel()
-    var locationManager : CLLocationManager!
+    var locationManager : MyCoreLocationManager!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        locationManager = CLLocationManager()
+        locationManager = MyCoreLocationManager()
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
     }
     
     @IBAction func startButtonPressed(sender: AnyObject) {
-        locationManager.startUpdatingLocation()
+        if(!locationManager.isUpdating){
+            locationManager.startUpdatingLocation()
+            startButton.setTitle("Stop", forState: UIControlState.Normal)
+        }else{
+            locationManager.stopUpdatingLocation()
+            startButton.setTitle("Start", forState: UIControlState.Normal)
+            speedCalculator.reset()
+        }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {

@@ -10,10 +10,20 @@ import Foundation
 import CoreLocation
 
 class SpeedCalculatorModel{
+    var distanceTravelled : Double!
     var latestLocation : CLLocation!
     var latestSpeed : CLLocationSpeed!{
         get{
             return latestLocation.speed
         }
+        
+        set(speed){
+            self.latestSpeed = speed
+        }
+    }
+    
+    func reset(){
+        latestLocation = nil
+        latestSpeed = 0
     }
 }
