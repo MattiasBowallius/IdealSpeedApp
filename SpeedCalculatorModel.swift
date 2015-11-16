@@ -10,7 +10,15 @@ import Foundation
 import CoreLocation
 
 class SpeedCalculatorModel{
+    
+    /**
+     The total distance travelled since the last reset. Measured in meters.
+     */
     var distanceTravelled : Double = 0.0
+    
+    /**
+     The latest location used for speed calculation and measuring the distance travelled
+     */
     var latestLocation : CLLocation!{
         willSet(newLocation){
             if(newLocation != nil){
@@ -21,6 +29,10 @@ class SpeedCalculatorModel{
             }
         }
     }
+    
+    /**
+     Returns the latest measured speed in m/s
+     */
     var latestSpeed : CLLocationSpeed!{
         get{
             if let previousLocation = latestLocation{
@@ -31,6 +43,9 @@ class SpeedCalculatorModel{
         }
     }
     
+    /**
+     Resets the SpeedCalculatorModel to it's original state
+     */
     func reset(){
         latestLocation = nil
         distanceTravelled = 0.0
