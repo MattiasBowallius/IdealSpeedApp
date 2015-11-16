@@ -9,12 +9,38 @@
 import Foundation
 import CoreLocation
 
+enum SpeedStatus{
+    case TooFast
+    case Good
+    case TooSlow
+}
+
 class SpeedCalculatorModel{
     
     /**
      The total distance travelled since the last reset. Measured in meters.
      */
     var distanceTravelled : Double = 0.0
+    
+    let speedTolerance : Double = 10
+    
+    /**
+     Returns a status depicting whether the speed is too high, too low or within the tolerance for speed error.
+     */
+    var speedStatus : SpeedStatus{
+        if latestSpeed > idealSpeed + speedTolerance {
+            return SpeedStatus.TooFast
+        } else if latestSpeed < idealSpeed - speedTolerance {
+            return SpeedStatus.TooSlow
+        } else {
+            return SpeedStatus.Good
+        }
+    }
+    
+    /**
+     The ideal speed used to calculate whether the user is going too fast, too slow or within the tolerance.
+     */
+    var idealSpeed : Double = 0.0
     
     /**
      The latest location used for speed calculation and measuring the distance travelled
