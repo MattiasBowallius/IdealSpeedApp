@@ -14,6 +14,9 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
     @IBOutlet weak var startButton: UIButton!
+    @IBOutlet weak var goFasterImageView: UIImageView!
+    @IBOutlet weak var goSlowerImageView: UIImageView!
+    @IBOutlet weak var idealSpeedLabel: UILabel!
     
     let speedCalculator = SpeedCalculatorModel()
     var locationManager : MyCoreLocationManager!
@@ -25,6 +28,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+        
+        goSlowerImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI));
+        
+        refreshUI()
     }
     
     @IBAction func startButtonPressed(sender: AnyObject) {
@@ -37,21 +44,33 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             speedCalculator.reset()
             
             //Needs to be refreshed separately since we want to show the latest distance travelled until we start again.
-            speedLabel.text = "\(speedCalculator.latestSpeed) m/s"
+            speedLabel.text = String(format: "%.2f kph", speedCalculator.latestSpeedInKph)
         }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        print("Updated location")
         let location = locations.last
         speedCalculator.latestLocation = location
-        print("The current speed is: \(speedCalculator.latestSpeed)")
         refreshUI()
     }
     
     func refreshUI(){
-        speedLabel.text = "\(speedCalculator.latestSpeed) m/s"
-        distanceLabel.text = "\(speedCalculator.distanceTravelled) m"
+        speedLabel.text = String(format: "%.2f kph", speedCalculator.latestSpeedInKph)
+        
+        //Truncate the number of meters since we do not want to round up to the next meter once we pass the half meter point.
+        distanceLabel.text = String(format: "%.0f m", speedCalculator.distanceTravelled)
+        
+        switch speedCalculator.speedStatus{
+        case SpeedStatus.TooFast:
+            goFasterImageView.hidden = true
+            goSlowerImageView.hidden = false
+        case .TooSlow:
+            goFasterImageView.hidden = false
+            goSlowerImageView.hidden = true
+        case .Good:
+            goFasterImageView.hidden = true
+            goSlowerImageView.hidden = true
+        }
     }
 }
 

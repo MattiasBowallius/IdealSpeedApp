@@ -28,9 +28,9 @@ class SpeedCalculatorModel{
      Returns a status depicting whether the speed is too high, too low or within the tolerance for speed error.
      */
     var speedStatus : SpeedStatus{
-        if latestSpeed > idealSpeed + speedTolerance {
+        if latestSpeedInMps > idealSpeed + speedTolerance {
             return SpeedStatus.TooFast
-        } else if latestSpeed < idealSpeed - speedTolerance {
+        } else if latestSpeedInMps < idealSpeed - speedTolerance {
             return SpeedStatus.TooSlow
         } else {
             return SpeedStatus.Good
@@ -59,7 +59,7 @@ class SpeedCalculatorModel{
     /**
      Returns the latest measured speed in m/s
      */
-    var latestSpeed : CLLocationSpeed!{
+    var latestSpeedInMps : CLLocationSpeed!{
         get{
             if let previousLocation = latestLocation{
                 return previousLocation.speed
@@ -69,6 +69,18 @@ class SpeedCalculatorModel{
         }
     }
     
+    /**
+     Returns the latest measured speed in km/h
+     */
+    var latestSpeedInKph : CLLocationSpeed!{
+        get{
+            if let previousLocation = latestLocation{
+                return previousLocation.speed * 60 * 60 / 1000
+            }else{
+                return 0
+            }
+        }
+    }
     /**
      Resets the SpeedCalculatorModel to it's original state
      */
