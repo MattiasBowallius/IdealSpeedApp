@@ -120,7 +120,7 @@
         <!--Settings-->
         <scene sceneID="Squ-Nv-sJN">
             <objects>
-                <viewController title="Settings" id="80S-vx-2fQ" sceneMemberID="viewController">
+                <viewController title="Settings" id="80S-vx-2fQ" customClass="SettingsViewController" customModule="IdealSpeedApp" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="2GY-hd-EO0"/>
                         <viewControllerLayoutGuide type="bottom" id="EDC-61-0g7"/>
@@ -128,14 +128,62 @@
                     <view key="view" contentMode="scaleToFill" id="ee5-6Y-KHS">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="1" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="BWK-G1-StT">
+                                <rect key="frame" x="20" y="53" width="97" height="30"/>
+                                <animations/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="97" id="hXd-y1-V7Y"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                <connections>
+                                    <action selector="editingOfIdealSpeedStopped:" destination="80S-vx-2fQ" eventType="editingDidEnd" id="xjh-nq-dSm"/>
+                                </connections>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ideal speed (kph)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Oya-WR-CAc">
+                                <rect key="frame" x="20" y="24" width="133" height="21"/>
+                                <animations/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <stepper opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" maximumValue="100" translatesAutoresizingMaskIntoConstraints="NO" id="Six-eT-ntX">
+                                <rect key="frame" x="125" y="54" width="94" height="29"/>
+                                <animations/>
+                                <connections>
+                                    <action selector="stepperPressed:" destination="80S-vx-2fQ" eventType="valueChanged" id="mej-Hg-fmq"/>
+                                </connections>
+                            </stepper>
+                        </subviews>
                         <animations/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="BWK-G1-StT" firstAttribute="top" secondItem="Oya-WR-CAc" secondAttribute="bottom" constant="8" symbolic="YES" id="1rf-p5-LqC"/>
+                            <constraint firstItem="BWK-G1-StT" firstAttribute="leading" secondItem="Oya-WR-CAc" secondAttribute="leading" id="LJk-tw-U6M"/>
+                            <constraint firstItem="BWK-G1-StT" firstAttribute="leading" secondItem="ee5-6Y-KHS" secondAttribute="leadingMargin" id="hbH-qJ-XRf"/>
+                            <constraint firstItem="Oya-WR-CAc" firstAttribute="top" secondItem="2GY-hd-EO0" secondAttribute="bottom" constant="4" id="qbk-7n-G0j"/>
+                            <constraint firstItem="Six-eT-ntX" firstAttribute="bottom" secondItem="BWK-G1-StT" secondAttribute="bottom" id="r6j-BW-b0U"/>
+                            <constraint firstItem="Six-eT-ntX" firstAttribute="leading" secondItem="BWK-G1-StT" secondAttribute="trailing" constant="8" symbolic="YES" id="xy2-Z6-KnJ"/>
+                        </constraints>
+                        <connections>
+                            <outletCollection property="gestureRecognizers" destination="vmp-Wz-8MD" appends="YES" id="jvk-Mg-8sK"/>
+                        </connections>
                     </view>
                     <tabBarItem key="tabBarItem" title="Settings" id="Gib-Q9-2yn"/>
+                    <connections>
+                        <outlet property="idealSpeedTextField" destination="BWK-G1-StT" id="IU9-ZA-kUT"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vzt-zh-cW7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="vmp-Wz-8MD">
+                    <connections>
+                        <action selector="touchUpInsideMainView:" destination="80S-vx-2fQ" id="rc1-xy-1kY"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="543" y="1105"/>
+            <point key="canvasLocation" x="518" y="1118"/>
         </scene>
     </scenes>
     <resources>

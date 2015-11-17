@@ -18,7 +18,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     @IBOutlet weak var goSlowerImageView: UIImageView!
     @IBOutlet weak var idealSpeedLabel: UILabel!
     
-    let speedCalculator = SpeedCalculatorModel()
     var locationManager : MyCoreLocationManager!
     
     override func viewDidLoad() {
@@ -34,6 +33,11 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         refreshUI()
     }
     
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        refreshUI()
+    }
+    
     @IBAction func startButtonPressed(sender: AnyObject) {
         if(!locationManager.isUpdating){
             locationManager.startUpdatingLocation()
@@ -41,26 +45,27 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         }else{
             locationManager.stopUpdatingLocation()
             startButton.setTitle("Start", forState: UIControlState.Normal)
-            speedCalculator.reset()
+            AppDelegate.speedCalculator.reset()
             
             //Needs to be refreshed separately since we want to show the latest distance travelled until we start again.
-            speedLabel.text = String(format: "%.2f kph", speedCalculator.latestSpeedInKph)
+            speedLabel.text = String(format: "%.2f kph", AppDelegate.speedCalculator.latestSpeedInKph)
         }
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let location = locations.last
-        speedCalculator.latestLocation = location
+        AppDelegate.speedCalculator.latestLocation = location
         refreshUI()
     }
     
     func refreshUI(){
-        speedLabel.text = String(format: "%.2f kph", speedCalculator.latestSpeedInKph)
+        speedLabel.text = String(format: "%.2f kph", AppDelegate.speedCalculator.latestSpeedInKph)
         
         //Truncate the number of meters since we do not want to round up to the next meter once we pass the half meter point.
-        distanceLabel.text = String(format: "%.0f m", speedCalculator.distanceTravelled)
+        distanceLabel.text = String(format: "%.0f m", AppDelegate.speedCalculator.distanceTravelled)
+        idealSpeedLabel.text = String(format: "Ideal Speed: %.0f kph", AppDelegate.speedCalculator.idealSpeed * 360 / 1000)
         
-        switch speedCalculator.speedStatus{
+        switch AppDelegate.speedCalculator.speedStatus{
         case SpeedStatus.TooFast:
             goFasterImageView.hidden = true
             goSlowerImageView.hidden = false
