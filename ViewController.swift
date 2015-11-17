@@ -27,6 +27,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.requestAlwaysAuthorization()
+        locationManager.activityType = CLActivityType.Fitness
         
         goSlowerImageView.transform = CGAffineTransformMakeRotation(CGFloat(M_PI));
         
