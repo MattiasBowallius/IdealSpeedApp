@@ -22,7 +22,11 @@ class SpeedCalculatorModel{
      */
     var distanceTravelled : Double = 0.0
     
-    let speedTolerance : Double = 10
+    var speedTolerance : Double {
+        get{
+            return idealSpeed * 0.1
+        }
+    }
     
     /**
      Returns a status depicting whether the speed is too high, too low or within the tolerance for speed error.
