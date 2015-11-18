@@ -64,7 +64,7 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         
         //Truncate the number of meters since we do not want to round up to the next meter once we pass the half meter point.
         distanceLabel.text = String(format: "%.0f m", AppDelegate.speedCalculator.distanceTravelled)
-        idealSpeedLabel.text = String(format: "Ideal Speed: %.0f kph", AppDelegate.speedCalculator.idealSpeed * 360 / 1000)
+        idealSpeedLabel.text = String(format: "Ideal Speed: %.0f kph", AppDelegate.speedCalculator.idealSpeed * 60 * 60 / 1000)
         
         switch AppDelegate.speedCalculator.speedStatus{
         case SpeedStatus.TooFast:

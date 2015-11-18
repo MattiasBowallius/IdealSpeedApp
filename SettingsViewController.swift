@@ -21,7 +21,7 @@ class SettingsViewController: UIViewController {
     
     @IBAction func stepperPressed(sender: UIStepper) {
         idealSpeedTextField.text = Int(sender.value).description
-        AppDelegate.speedCalculator.idealSpeed = Double(sender.value) * 1000 / 360
+        AppDelegate.speedCalculator.idealSpeed = Double(sender.value) * 1000 / 60 / 60
     }
     
     @IBAction func touchUpInsideMainView(sender: AnyObject) {
@@ -30,7 +30,7 @@ class SettingsViewController: UIViewController {
     @IBAction func editingOfIdealSpeedStopped(sender: AnyObject) {
         
         if let valueOfTextField : Double? = Double(idealSpeedTextField.text!){
-            AppDelegate.speedCalculator.idealSpeed = valueOfTextField! * 1000 / 360
+            AppDelegate.speedCalculator.idealSpeed = valueOfTextField! * 1000 / 60 / 60
         }
     }
     /*
