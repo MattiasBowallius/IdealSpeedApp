@@ -1,0 +1,30 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "CE54BE566BA68B249C6922A6B45458B3C6D14EA1",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "CE54BE566BA68B249C6922A6B45458B3C6D14EA1" : 0,
+    "6C089EC5F79A5F33A31A922C0CD810B300B69422" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "F21B2D49-0FA0-46EE-AA9B-55FBE7813435",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "CE54BE566BA68B249C6922A6B45458B3C6D14EA1" : "IdealSpeedApp\/",
+    "6C089EC5F79A5F33A31A922C0CD810B300B69422" : "IdealSpeedApp\/IdealSpeedApp\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "IdealSpeedApp",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "IdealSpeedApp.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MattiasBowallius\/IdealSpeedApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "6C089EC5F79A5F33A31A922C0CD810B300B69422"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "https:\/\/github.com\/MattiasBowallius\/IdealSpeedApp.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "CE54BE566BA68B249C6922A6B45458B3C6D14EA1"
+    }
+  ]
+}
