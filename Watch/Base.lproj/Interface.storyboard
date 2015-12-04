@@ -1,21 +1,38 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15A279b" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
+<document type="com.apple.InterfaceBuilder.WatchKit.Storyboard" version="3.0" toolsVersion="9060" systemVersion="15B42" targetRuntime="watchKit" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="AgC-eL-Hgc">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9051"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Interface Controller-->
+        <!--Glance Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="InterfaceController" customModule="Watch" customModuleProvider="target"/>
+                <controller id="AgC-eL-Hgc" customClass="GlanceController" customModule="Watch_Extension">
+                    <items>
+                        <group alignment="left" id="Ef5-QB-fuF">
+                            <items>
+                                <label alignment="left" text="0 m" id="z8Z-fq-xTd"/>
+                            </items>
+                        </group>
+                        <group alignment="left" layout="vertical" id="bU1-hB-lBF">
+                            <items>
+                                <imageView width="1" height="0.40000000000000002" alignment="left" image="Arrow up" id="BTX-Pz-fCi"/>
+                                <label width="136" alignment="left" text="0.0 km/h" textAlignment="center" id="nec-HE-5Bk">
+                                    <fontDescription key="font" style="UICTFontTextStyleTitle1"/>
+                                </label>
+                                <imageView width="1" height="0.40000000000000002" alignment="left" image="Arrow down" id="9kv-mm-oh0"/>
+                            </items>
+                        </group>
+                    </items>
+                </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
         </scene>
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="Watch" customModuleProvider="target">
+                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="Watch_Extension">
                     <items>
                         <group alignment="left" id="gv7-I2-MZq">
                             <items>
