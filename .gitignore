@@ -1,1 +1,4 @@
 IdealSpeedApp.xcodeproj/project.xcworkspace/
+IdealSpeedApp.xcodeproj/xcuserdata/
+*.xcbkptlist
+*.xcuserstate
