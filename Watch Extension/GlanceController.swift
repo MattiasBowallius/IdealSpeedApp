@@ -21,6 +21,7 @@ class GlanceController: WKInterfaceController, WCSessionDelegate{
     var session: WCSession!
     
     override func didAppear() {
+        speedLabel.setText("hej")
         if (WCSession.isSupported()) {
             session = WCSession.defaultSession()
             session.delegate = self
@@ -47,5 +48,13 @@ class GlanceController: WKInterfaceController, WCSessionDelegate{
     }
     func sessionReachabilityDidChange(session: WCSession) {
         print("Reachability is: \(session.reachable)")
+    }
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
+        dispatch_async(dispatch_get_main_queue(), {
+            if let speed = message["speed"] as? Double{
+                self.speedLabel.setText(String(speed))
+            }
+        })
     }
 }

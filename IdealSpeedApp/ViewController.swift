@@ -65,9 +65,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate, WCSessionDele
     }
     
     func locationManager(manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
+        print("location updated")
         let location = locations.last
         AppDelegate.speedCalculator.latestLocation = location
         refreshUI()
+        if session != nil && session!.reachable {
+            session?.sendMessage(["speed":AppDelegate.speedCalculator.latestSpeedInKph],
+                replyHandler: {(response) -> Void in print(response)},
+                errorHandler:{(error) -> Void in print(error)})
+        }
     }
     
     func refreshUI(){
@@ -95,6 +101,6 @@ class ViewController: UIViewController, CLLocationManagerDelegate, WCSessionDele
             replyHandler(["speed":AppDelegate.speedCalculator.latestSpeedInKph])
         })
     }
-
+    
 }
 

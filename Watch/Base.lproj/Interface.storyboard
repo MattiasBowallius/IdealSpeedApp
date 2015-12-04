@@ -25,6 +25,11 @@
                             </items>
                         </group>
                     </items>
+                    <connections>
+                        <outlet property="slowDownImage" destination="9kv-mm-oh0" id="1WU-hD-4Ah"/>
+                        <outlet property="speedLabel" destination="nec-HE-5Bk" id="6Np-oD-vJ7"/>
+                        <outlet property="speedUpImage" destination="BTX-Pz-fCi" id="fJu-lv-YRZ"/>
+                    </connections>
                 </controller>
             </objects>
             <point key="canvasLocation" x="164" y="217"/>
@@ -53,7 +58,7 @@
                     <connections>
                         <outlet property="distanceLable" destination="c0s-KU-WSu" id="DWv-mf-NBe"/>
                         <outlet property="slowDownImage" destination="fUd-lh-BSC" id="gYC-sD-PiY"/>
-                        <outlet property="speedLabel" destination="SW0-eU-Y4g" id="X80-If-Jj9"/>
+                        <outlet property="speedLabel" destination="SW0-eU-Y4g" id="7w1-Ez-Rwa"/>
                         <outlet property="speedUpImage" destination="yi5-Sh-QVA" id="5Ou-Nr-JBE"/>
                     </connections>
                 </glanceController>
