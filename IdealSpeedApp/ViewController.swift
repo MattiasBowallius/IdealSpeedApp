@@ -8,8 +8,9 @@
 
 import UIKit
 import CoreLocation
+import WatchConnectivity
 
-class ViewController: UIViewController, CLLocationManagerDelegate {
+class ViewController: UIViewController, CLLocationManagerDelegate, WCSessionDelegate {
     
     @IBOutlet weak var speedLabel: UILabel!
     @IBOutlet weak var distanceLabel: UILabel!
@@ -20,6 +21,15 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
     
     var locationManager : MyCoreLocationManager!
     
+    var session: WCSession? {
+        didSet {
+            if let session = session {
+                session.delegate = self
+                session.activateSession()
+            }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -29,6 +39,10 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
         locationManager.requestAlwaysAuthorization()
         locationManager.activityType = CLActivityType.Fitness
         refreshUI()
+        
+        if WCSession.isSupported() {
+            session = WCSession.defaultSession()
+        }
     }
     
     override func viewDidAppear(animated: Bool) {
@@ -75,5 +89,12 @@ class ViewController: UIViewController, CLLocationManagerDelegate {
             goSlowerImageView.hidden = true
         }
     }
+    
+    func session(session: WCSession, didReceiveMessage message: [String : AnyObject], replyHandler: ([String : AnyObject]) -> Void) {
+        dispatch_async(dispatch_get_main_queue(), {
+            replyHandler(["speed":AppDelegate.speedCalculator.latestSpeedInKph])
+        })
+    }
+
 }
 
