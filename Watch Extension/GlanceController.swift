@@ -55,6 +55,22 @@ class GlanceController: WKInterfaceController, WCSessionDelegate{
             if let speed = message["speed"] as? Double{
                 self.speedLabel.setText(String(speed))
             }
+            if let speedStatusRaw = message["speedStatus"] as? String{
+                if let speedStatus = SpeedStatus(rawValue: speedStatusRaw){
+                    switch speedStatus{
+                    case SpeedStatus.TooFast:
+                        self.speedUpImage.setImage(nil)
+                        self.slowDownImage.setImageNamed("Arrow down")
+                    case .TooSlow:
+                        self.speedUpImage.setImageNamed("Arrow up")
+                        self.slowDownImage.setImage(nil)
+                    case .Good:
+                        self.speedUpImage.setImage(nil)
+                        self.slowDownImage.setImage(nil)
+                    }
+                    
+                }
+            }
         })
     }
 }

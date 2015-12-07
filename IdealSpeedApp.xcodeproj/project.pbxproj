@@ -24,6 +24,8 @@
 		B9E761881BF9B95700430FFB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E761861BF9B95700430FFB /* Main.storyboard */; };
 		B9E7618A1BF9B95700430FFB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B9E761891BF9B95700430FFB /* Assets.xcassets */; };
 		B9E7618D1BF9B95700430FFB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B9E7618B1BF9B95700430FFB /* LaunchScreen.storyboard */; };
+		B9EEC3F41C11E692004A3D1A /* SpeedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EEC3F31C11E692004A3D1A /* SpeedStatus.swift */; };
+		B9EEC3F51C11E692004A3D1A /* SpeedStatus.swift in Sources */ = {isa = PBXBuildFile; fileRef = B9EEC3F31C11E692004A3D1A /* SpeedStatus.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -90,6 +92,7 @@
 		B9E761891BF9B95700430FFB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B9E7618C1BF9B95700430FFB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		B9E7618E1BF9B95700430FFB /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B9EEC3F31C11E692004A3D1A /* SpeedStatus.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedStatus.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -136,6 +139,7 @@
 		B9E761761BF9B95700430FFB = {
 			isa = PBXGroup;
 			children = (
+				B9EEC3F21C11E66A004A3D1A /* Shared */,
 				B9E761811BF9B95700430FFB /* IdealSpeedApp */,
 				B98458ED1BFDD88B005719A1 /* Watch */,
 				B98458FC1BFDD88B005719A1 /* Watch Extension */,
@@ -167,6 +171,14 @@
 				B9E7618E1BF9B95700430FFB /* Info.plist */,
 			);
 			path = IdealSpeedApp;
+			sourceTree = "<group>";
+		};
+		B9EEC3F21C11E66A004A3D1A /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				B9EEC3F31C11E692004A3D1A /* SpeedStatus.swift */,
+			);
+			name = Shared;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,15 +249,15 @@
 				TargetAttributes = {
 					B98458EB1BFDD88B005719A1 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = NLL67MB52Q;
+						DevelopmentTeam = 8C27T2J7T6;
 					};
 					B98458F71BFDD88B005719A1 = {
 						CreatedOnToolsVersion = 7.1.1;
-						DevelopmentTeam = NLL67MB52Q;
+						DevelopmentTeam = 8C27T2J7T6;
 					};
 					B9E7617E1BF9B95700430FFB = {
 						CreatedOnToolsVersion = 7.1;
-						DevelopmentTeam = NLL67MB52Q;
+						DevelopmentTeam = 8C27T2J7T6;
 					};
 				};
 			};
@@ -307,6 +319,7 @@
 				B98459001BFDD88B005719A1 /* ExtensionDelegate.swift in Sources */,
 				B98459041BFDD88B005719A1 /* ComplicationController.swift in Sources */,
 				B98458FE1BFDD88B005719A1 /* InterfaceController.swift in Sources */,
+				B9EEC3F51C11E692004A3D1A /* SpeedStatus.swift in Sources */,
 				B98459021BFDD88B005719A1 /* GlanceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -316,6 +329,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B9E761851BF9B95700430FFB /* ViewController.swift in Sources */,
+				B9EEC3F41C11E692004A3D1A /* SpeedStatus.swift in Sources */,
 				B944199C1BF9D7E500BDF6F3 /* MyCoreLocationManager.swift in Sources */,
 				B947B0961BF9BDB600E1A106 /* SpeedCalculatorModel.swift in Sources */,
 				B944199E1BFB783800BDF6F3 /* SettingsViewController.swift in Sources */,
@@ -370,15 +384,20 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MBApplications.IdealSpeedApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};
@@ -388,13 +407,17 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				IBSC_MODULE = Watch_Extension;
 				INFOPLIST_FILE = Watch/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MBApplications.IdealSpeedApp.watchkitapp;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -406,10 +429,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MBApplications.IdealSpeedApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -421,10 +447,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_COMPLICATION_NAME = Complication;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=watchos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Watch Extension/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @executable_path/../../Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = MBApplications.IdealSpeedApp.watchkitapp.watchkitextension;
 				PRODUCT_NAME = "${TARGET_NAME}";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
 				TARGETED_DEVICE_FAMILY = 4;
@@ -551,6 +580,7 @@
 				B984590E1BFDD88C005719A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B98459111BFDD88C005719A1 /* Build configuration list for PBXNativeTarget "Watch" */ = {
 			isa = XCConfigurationList;
@@ -559,6 +589,7 @@
 				B984590C1BFDD88C005719A1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		B9E7617A1BF9B95700430FFB /* Build configuration list for PBXProject "IdealSpeedApp" */ = {
 			isa = XCConfigurationList;
