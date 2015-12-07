@@ -37,6 +37,11 @@ class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
         }
     }
     
+    func session(session: WCSession, didReceiveApplicationContext applicationContext: [String : AnyObject]) {
+        print("Updated UI from context")
+        refreshUI(applicationContext)
+    }
+    
     func sessionReachabilityDidChange(session: WCSession) {
         print("Reachability is: \(session.reachable)")
     }
