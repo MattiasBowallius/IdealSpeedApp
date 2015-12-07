@@ -21,18 +21,13 @@ class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
     var session: WCSession!
     
     override func didAppear() {
-        speedLabel.setText("hej")
         if (WCSession.isSupported()) {
             session = WCSession.defaultSession()
             session.delegate = self
             session.activateSession()
             if(session.reachable){
                 session.sendMessage([:], replyHandler: {(response) -> Void in
-                    print("success")
-                    if let speed = response["speed"] as? String{
-                        self.speedLabel.setText(speed)
-                    }
-                    
+                    self.refreshUI(response)
                     }, errorHandler: {(error) -> Void in
                         print("\(error)")
                 })
@@ -47,31 +42,34 @@ class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
     }
     
     func session(session: WCSession, didReceiveMessage message: [String : AnyObject]) {
-        dispatch_async(dispatch_get_main_queue(), {
-            if let speed = message["speed"] as? Double{
-                self.speedLabel.setText(String(speed))
-            }
-            
-            if let distance = message["distance"] as? Double{
-                self.distanceLabel.setText(String(distance))
-            }
-            
-            if let speedStatusRaw = message["speedStatus"] as? String{
-                if let speedStatus = SpeedStatus(rawValue: speedStatusRaw){
-                    switch speedStatus{
-                    case SpeedStatus.TooFast:
-                        self.speedUpImage.setImage(nil)
-                        self.slowDownImage.setImageNamed("Arrow down")
-                    case .TooSlow:
-                        self.speedUpImage.setImageNamed("Arrow up")
-                        self.slowDownImage.setImage(nil)
-                    case .Good:
-                        self.speedUpImage.setImage(nil)
-                        self.slowDownImage.setImage(nil)
-                    }
-                    
+        dispatch_async(dispatch_get_main_queue(), {self.refreshUI(message)})
+    }
+    
+    func refreshUI(message: [String : AnyObject]) {
+        if let speed = message["speed"] as? Double{
+            self.speedLabel.setText(String(format:"%.2f km/h" , speed))
+        }
+        
+        if let distance = message["distance"] as? Double{
+            self.distanceLabel.setText(String(format: "%.0f m", distance))
+        }
+        
+        if let speedStatusRaw = message["speedStatus"] as? String{
+            if let speedStatus = SpeedStatus(rawValue: speedStatusRaw){
+                switch speedStatus{
+                case SpeedStatus.TooFast:
+                    self.speedUpImage.setImage(nil)
+                    self.slowDownImage.setImageNamed("Arrow down")
+                case .TooSlow:
+                    self.speedUpImage.setImageNamed("Arrow up")
+                    self.slowDownImage.setImage(nil)
+                case .Good:
+                    self.speedUpImage.setImage(nil)
+                    self.slowDownImage.setImage(nil)
                 }
+                
             }
-        })
+        }
+        
     }
 }
