@@ -10,6 +10,8 @@
 		B944199C1BF9D7E500BDF6F3 /* MyCoreLocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944199B1BF9D7E500BDF6F3 /* MyCoreLocationManager.swift */; };
 		B944199E1BFB783800BDF6F3 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B944199D1BFB783800BDF6F3 /* SettingsViewController.swift */; };
 		B947B0961BF9BDB600E1A106 /* SpeedCalculatorModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B947B0951BF9BDB600E1A106 /* SpeedCalculatorModel.swift */; };
+		B96A3C0D1C158F5E0000CEFA /* WatchCommunicationEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A3C0C1C158F5E0000CEFA /* WatchCommunicationEnums.swift */; };
+		B96A3C0E1C158F5E0000CEFA /* WatchCommunicationEnums.swift in Sources */ = {isa = PBXBuildFile; fileRef = B96A3C0C1C158F5E0000CEFA /* WatchCommunicationEnums.swift */; };
 		B98458F01BFDD88B005719A1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98458EE1BFDD88B005719A1 /* Interface.storyboard */; };
 		B98458F21BFDD88B005719A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98458F11BFDD88B005719A1 /* Assets.xcassets */; };
 		B98458F91BFDD88B005719A1 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B98458F81BFDD88B005719A1 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
@@ -73,6 +75,8 @@
 		B944199B1BF9D7E500BDF6F3 /* MyCoreLocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyCoreLocationManager.swift; sourceTree = "<group>"; };
 		B944199D1BFB783800BDF6F3 /* SettingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		B947B0951BF9BDB600E1A106 /* SpeedCalculatorModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SpeedCalculatorModel.swift; sourceTree = "<group>"; };
+		B96A3C0B1C158F5E0000CEFA /* Watch-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Watch-Bridging-Header.h"; sourceTree = "<group>"; };
+		B96A3C0C1C158F5E0000CEFA /* WatchCommunicationEnums.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WatchCommunicationEnums.swift; sourceTree = "<group>"; };
 		B98458EC1BFDD88B005719A1 /* Watch.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Watch.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B98458EF1BFDD88B005719A1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Interface.storyboard; sourceTree = "<group>"; };
 		B98458F11BFDD88B005719A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -174,6 +178,8 @@
 			isa = PBXGroup;
 			children = (
 				B9EEC3F31C11E692004A3D1A /* SpeedStatus.swift */,
+				B96A3C0C1C158F5E0000CEFA /* WatchCommunicationEnums.swift */,
+				B96A3C0B1C158F5E0000CEFA /* Watch-Bridging-Header.h */,
 			);
 			name = Shared;
 			sourceTree = "<group>";
@@ -316,6 +322,7 @@
 				B98459001BFDD88B005719A1 /* ExtensionDelegate.swift in Sources */,
 				B98459041BFDD88B005719A1 /* ComplicationController.swift in Sources */,
 				B9EEC3F51C11E692004A3D1A /* SpeedStatus.swift in Sources */,
+				B96A3C0E1C158F5E0000CEFA /* WatchCommunicationEnums.swift in Sources */,
 				B98459021BFDD88B005719A1 /* SpeedInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -329,6 +336,7 @@
 				B944199C1BF9D7E500BDF6F3 /* MyCoreLocationManager.swift in Sources */,
 				B947B0961BF9BDB600E1A106 /* SpeedCalculatorModel.swift in Sources */,
 				B944199E1BFB783800BDF6F3 /* SettingsViewController.swift in Sources */,
+				B96A3C0D1C158F5E0000CEFA /* WatchCommunicationEnums.swift in Sources */,
 				B9E761831BF9B95700430FFB /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -393,6 +401,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Watch-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
@@ -416,6 +425,7 @@
 				PROVISIONING_PROFILE = "";
 				SDKROOT = watchos;
 				SKIP_INSTALL = YES;
+				SWIFT_OBJC_BRIDGING_HEADER = "Watch-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 4;
 				WATCHOS_DEPLOYMENT_TARGET = 2.0;
 			};

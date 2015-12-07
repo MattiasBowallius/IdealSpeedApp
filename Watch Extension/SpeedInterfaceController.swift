@@ -46,15 +46,15 @@ class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
     }
     
     func refreshUI(message: [String : AnyObject]) {
-        if let speed = message["speed"] as? Double{
+        if let speed = message[ResponseKey.speed.rawValue] as? Double{
             self.speedLabel.setText(String(format:"%.2f km/h" , speed))
         }
         
-        if let distance = message["distance"] as? Double{
+        if let distance = message[ResponseKey.distance.rawValue] as? Double{
             self.distanceLabel.setText(String(format: "%.0f m", distance))
         }
         
-        if let speedStatusRaw = message["speedStatus"] as? String{
+        if let speedStatusRaw = message[ResponseKey.speedStatus.rawValue] as? String{
             if let speedStatus = SpeedStatus(rawValue: speedStatusRaw){
                 switch speedStatus{
                 case SpeedStatus.TooFast:
