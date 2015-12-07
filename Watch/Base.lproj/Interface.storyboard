@@ -26,6 +26,7 @@
                         </group>
                     </items>
                     <connections>
+                        <outlet property="distanceLabel" destination="z8Z-fq-xTd" id="N7R-O2-JPa"/>
                         <outlet property="slowDownImage" destination="9kv-mm-oh0" id="1WU-hD-4Ah"/>
                         <outlet property="speedLabel" destination="nec-HE-5Bk" id="6Np-oD-vJ7"/>
                         <outlet property="speedUpImage" destination="BTX-Pz-fCi" id="fJu-lv-YRZ"/>

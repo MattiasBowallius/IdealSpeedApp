@@ -42,10 +42,6 @@ class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
         }
     }
     
-    override func didDeactivate() {
-        // This method is called when watch view controller is no longer visible
-        super.didDeactivate()
-    }
     func sessionReachabilityDidChange(session: WCSession) {
         print("Reachability is: \(session.reachable)")
     }
@@ -55,6 +51,11 @@ class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
             if let speed = message["speed"] as? Double{
                 self.speedLabel.setText(String(speed))
             }
+            
+            if let distance = message["distance"] as? Double{
+                self.distanceLabel.setText(String(distance))
+            }
+            
             if let speedStatusRaw = message["speedStatus"] as? String{
                 if let speedStatus = SpeedStatus(rawValue: speedStatusRaw){
                     switch speedStatus{
