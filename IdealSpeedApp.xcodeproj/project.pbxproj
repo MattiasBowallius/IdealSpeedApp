@@ -13,9 +13,8 @@
 		B98458F01BFDD88B005719A1 /* Interface.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B98458EE1BFDD88B005719A1 /* Interface.storyboard */; };
 		B98458F21BFDD88B005719A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98458F11BFDD88B005719A1 /* Assets.xcassets */; };
 		B98458F91BFDD88B005719A1 /* Watch Extension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = B98458F81BFDD88B005719A1 /* Watch Extension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
-		B98458FE1BFDD88B005719A1 /* InterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98458FD1BFDD88B005719A1 /* InterfaceController.swift */; };
 		B98459001BFDD88B005719A1 /* ExtensionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98458FF1BFDD88B005719A1 /* ExtensionDelegate.swift */; };
-		B98459021BFDD88B005719A1 /* GlanceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98459011BFDD88B005719A1 /* GlanceController.swift */; };
+		B98459021BFDD88B005719A1 /* SpeedInterfaceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98459011BFDD88B005719A1 /* SpeedInterfaceController.swift */; };
 		B98459041BFDD88B005719A1 /* ComplicationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B98459031BFDD88B005719A1 /* ComplicationController.swift */; };
 		B98459061BFDD88C005719A1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B98459051BFDD88C005719A1 /* Assets.xcassets */; };
 		B984590A1BFDD88C005719A1 /* Watch.app in Embed Watch Content */ = {isa = PBXBuildFile; fileRef = B98458EC1BFDD88B005719A1 /* Watch.app */; };
@@ -79,9 +78,8 @@
 		B98458F11BFDD88B005719A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B98458F31BFDD88B005719A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B98458F81BFDD88B005719A1 /* Watch Extension.appex */ = {isa = PBXFileReference; explicitFileType = "wrapper.app-extension"; includeInIndex = 0; path = "Watch Extension.appex"; sourceTree = BUILT_PRODUCTS_DIR; };
-		B98458FD1BFDD88B005719A1 /* InterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InterfaceController.swift; sourceTree = "<group>"; };
 		B98458FF1BFDD88B005719A1 /* ExtensionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExtensionDelegate.swift; sourceTree = "<group>"; };
-		B98459011BFDD88B005719A1 /* GlanceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlanceController.swift; sourceTree = "<group>"; };
+		B98459011BFDD88B005719A1 /* SpeedInterfaceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpeedInterfaceController.swift; sourceTree = "<group>"; };
 		B98459031BFDD88B005719A1 /* ComplicationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ComplicationController.swift; sourceTree = "<group>"; };
 		B98459051BFDD88C005719A1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B98459071BFDD88C005719A1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -126,9 +124,8 @@
 		B98458FC1BFDD88B005719A1 /* Watch Extension */ = {
 			isa = PBXGroup;
 			children = (
-				B98458FD1BFDD88B005719A1 /* InterfaceController.swift */,
 				B98458FF1BFDD88B005719A1 /* ExtensionDelegate.swift */,
-				B98459011BFDD88B005719A1 /* GlanceController.swift */,
+				B98459011BFDD88B005719A1 /* SpeedInterfaceController.swift */,
 				B98459031BFDD88B005719A1 /* ComplicationController.swift */,
 				B98459051BFDD88C005719A1 /* Assets.xcassets */,
 				B98459071BFDD88C005719A1 /* Info.plist */,
@@ -318,9 +315,8 @@
 			files = (
 				B98459001BFDD88B005719A1 /* ExtensionDelegate.swift in Sources */,
 				B98459041BFDD88B005719A1 /* ComplicationController.swift in Sources */,
-				B98458FE1BFDD88B005719A1 /* InterfaceController.swift in Sources */,
 				B9EEC3F51C11E692004A3D1A /* SpeedStatus.swift in Sources */,
-				B98459021BFDD88B005719A1 /* GlanceController.swift in Sources */,
+				B98459021BFDD88B005719A1 /* SpeedInterfaceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

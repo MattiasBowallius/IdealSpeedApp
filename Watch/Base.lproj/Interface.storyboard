@@ -5,10 +5,10 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBWatchKitPlugin" version="9019"/>
     </dependencies>
     <scenes>
-        <!--Glance Controller-->
+        <!--Speed Interface Controller-->
         <scene sceneID="aou-V4-d1y">
             <objects>
-                <controller id="AgC-eL-Hgc" customClass="GlanceController" customModule="Watch_Extension">
+                <controller id="AgC-eL-Hgc" customClass="SpeedInterfaceController" customModule="Watch_Extension">
                     <items>
                         <group alignment="left" id="Ef5-QB-fuF">
                             <items>
@@ -37,7 +37,7 @@
         <!--Glance Interface Controller-->
         <scene sceneID="rjY-Ar-IMT">
             <objects>
-                <glanceController spacing="0.0" id="Sv0-Ai-Zie" customClass="GlanceController" customModule="Watch_Extension">
+                <glanceController spacing="0.0" id="Sv0-Ai-Zie">
                     <items>
                         <group alignment="left" id="gv7-I2-MZq">
                             <items>

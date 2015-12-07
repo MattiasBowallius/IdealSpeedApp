@@ -11,7 +11,7 @@ import WatchConnectivity
 import Foundation
 
 
-class GlanceController: WKInterfaceController, WCSessionDelegate{
+class SpeedInterfaceController: WKInterfaceController, WCSessionDelegate{
     
     @IBOutlet var distanceLabel: WKInterfaceLabel!
     @IBOutlet var speedUpImage: WKInterfaceImage!
